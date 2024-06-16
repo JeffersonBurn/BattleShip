@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const shipPositions = generateRandomPositions(gridSize, 6);
+  console.log(shipPositions)
 
   // Function to create grid cells dynamically
   function createGrid() {
@@ -41,6 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
           count_ships = count_ships + 1;
 
           if (count_ships === 6) {
+            let battle = document.getElementById("battle");
+            battle.pause();
+            let win = document.getElementById("win");
+            win.play();
             alert("Parabéns! Você afundou todos os navios.\nNúmero de tentativas: " + count);
             location.reload();
           } else {
@@ -50,6 +55,16 @@ document.addEventListener("DOMContentLoaded", function () {
           let fail = document.getElementById("fail");
           fail.play();
           cell.style.backgroundImage = `url('assets/img/tile-water.jpg')`;
+
+          if (count === 35){
+
+            let battle = document.getElementById("battle");
+            battle.pause();
+            let lose = document.getElementById("lose");
+            lose.play();
+            alert("Infelizmente, você perdeu.\nMais sorte na próxima vez.");
+            location.reload();
+          }
         }
         cell.style.pointerEvents = "none"; // Disable further clicks on this cell
       });
@@ -61,14 +76,31 @@ document.addEventListener("DOMContentLoaded", function () {
   createGrid();
 });
 
+let tutorial = false;
+
 document.addEventListener("click", function (event) {
+
+  let soundtrack = document.getElementById("myAudio");
+
+  if(!tutorial){
+
+    
+    soundtrack.play();
+
+    alert("Existem 5 navios escondidos no nevoeiro.\nSua missão? Explodir todos eles.\nVocê perde se sobrar somente uma cordenada para explodir.");
+
+    tutorial = true;
+  }
+
   let grid = document.getElementById("grid");
   grid.style.display = "grid";
 
-  let soundtrack = document.getElementById("myAudio");
-  soundtrack.play();
-  soundtrack.volume = 0.02;
+  soundtrack.pause();
+  let battle = document.getElementById("battle");
+  battle.play();
+  battle.volume = 0.05;
 
   let background = document.getElementById("background");
   background.style.backgroundImage = `url('assets/img/playing-screen.jpg')`;
 });
+

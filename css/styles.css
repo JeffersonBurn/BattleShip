@@ -5,14 +5,13 @@
 }
 
 main {
-  background-image: url('../assets/img/game-start.jpg');
+  background-image: url("../assets/img/game-start.jpg");
   background-size: cover; /* Adjusts the size of the background image */
   background-position: center; /* Centers the background image */
   background-repeat: no-repeat; /* Prevents the background image from repeating */
   width: 100%; /* Example width */
   width: 65em;
   height: 40em;
-  background-image: ;
   background-color: black;
   margin-top: 0.3em;
   margin-bottom: 0.3em;
@@ -39,7 +38,7 @@ body {
   display: none;
 }
 .cell {
-  background-image: url('../assets/img/tile-fog.png');
+  background-image: url("../assets/img/tile-fog.png");
   background-size: cover; /* Adjusts the size of the background image */
   background-position: center; /* Centers the background image */
   background-repeat: no-repeat; /* Prevents the background image from repeating */
@@ -49,17 +48,15 @@ body {
   cursor: pointer; /* Pointer cursor on cells */
 }
 
-#inform{
-
-    width: 55em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1em;
-    justify-content: space-between;
+#inform {
+  width: 55em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: space-between;
 }
 
-.hide-img{
-
+.hide-img {
   display: none;
 }
