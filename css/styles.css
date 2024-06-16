@@ -39,9 +39,12 @@ body {
   display: none;
 }
 .cell {
+  background-image: url('../assets/img/tile-fog.png');
+  background-size: cover; /* Adjusts the size of the background image */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
   width: 6em; /* Adjust cell width */
   height: 6em; /* Adjust cell height */
-  background-color: gray; /* Default cell color */
   border: 1px solid #fff; /* Cell border */
   cursor: pointer; /* Pointer cursor on cells */
 }

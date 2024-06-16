@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         count = count + 1;
 
         if (shipPositions.includes(i)) {
-          cell.style.backgroundColor = "red"; // Hit (ship found)
+          cell.style.backgroundImage = `url('assets/img/tile-explosion.png')`;
           let explosion = document.getElementById("explosion");
           explosion.play();
 
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           let fail = document.getElementById("fail");
           fail.play();
-          cell.style.backgroundColor = "#a0c4ff"; // Miss
+          cell.style.backgroundImage = `url('assets/img/tile-water.jpg')`;
         }
         cell.style.pointerEvents = "none"; // Disable further clicks on this cell
       });
