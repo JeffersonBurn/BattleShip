@@ -4,9 +4,21 @@
   box-sizing: border-box;
 }
 
-canvas {
+main {
+  background-image: url('../assets/img/game-start.jpg');
+  background-size: cover; /* Adjusts the size of the background image */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+  width: 100%; /* Example width */
+  width: 65em;
+  height: 40em;
+  background-image: ;
   background-color: black;
   margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
 }
 
 body {
@@ -14,6 +26,24 @@ body {
   flex-direction: column;
   align-items: center;
   background-image: url("../img/background_ocean.jpg");
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 6em); /* Adjust column count */
+  grid-gap: 1px; /* Gap between grid cells */
+  border: 1px solid #ccc; /* Grid border */
+  width: fit-content;
+  margin: auto;
+  margin-top: 1em;
+  display: none;
+}
+.cell {
+  width: 6em; /* Adjust cell width */
+  height: 6em; /* Adjust cell height */
+  background-color: gray; /* Default cell color */
+  border: 1px solid #fff; /* Cell border */
+  cursor: pointer; /* Pointer cursor on cells */
 }
 
 #inform{
@@ -24,4 +54,9 @@ body {
     flex-wrap: wrap;
     gap: 1em;
     justify-content: space-between;
+}
+
+.hide-img{
+
+  display: none;
 }

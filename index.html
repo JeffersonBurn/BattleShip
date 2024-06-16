@@ -13,14 +13,15 @@
 
 <body>
 
-    <audio id="myAudio" src="tracks/soundtrack.mp3" preload="auto" loop></audio>
+    <!-- Carregando Áudio -->
+    <audio id="myAudio" src="assets/tracks/soundtrack.mp3" preload="auto" loop></audio>
+    <audio id="explosion" src="assets/sfx/explosion.wav" preload="auto"></audio>
+    <audio id="fail" src="assets/sfx/fail.wav" preload="auto"></audio>
 
-    <main>
-        <canvas width="900em" height="550em" id="myCanvas">
-
-            <img width="900em" height="550em" alt="Under Construction" src="img/under_construction.jpg" />
-
-        </canvas>
+    <main id = "background">
+        <div class="grid" id="grid">
+            <!-- Cells will be dynamically generated here -->
+        </div>
     </main>
 
     <footer id="inform">
@@ -47,7 +48,7 @@
 
     </footer>
 
-    <script src="game-src/js/script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 
