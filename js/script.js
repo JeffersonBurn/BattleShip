@@ -1,8 +1,15 @@
+let tentativas = document.getElementById("tentativas");
+let bombardeados = document.getElementById("bombardeados");
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const grid = document.getElementById("grid");
   const gridSize = 6; // Size of the grid (10x10 in this case)
   let count_ships = 0;
   let count = 0;
+
+  bombardeados.innerHTML = count_ships;
+  tentativas.innerHTML = count;
 
   function generateRandomPositions(gridSize, numberOfShips) {
     let positions = [];
@@ -33,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
       cell.addEventListener("click", function () {
 
         count = count + 1;
+        tentativas.innerHTML = count;
 
         if (shipPositions.includes(i)) {
           cell.style.backgroundImage = `url('assets/img/tile-explosion.png')`;
@@ -40,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
           explosion.play();
 
           count_ships = count_ships + 1;
+          bombardeados.innerHTML = count_ships;
 
           if (count_ships === 6) {
             let battle = document.getElementById("battle");
@@ -48,7 +57,17 @@ document.addEventListener("DOMContentLoaded", function () {
             win.play();
             alert("Parabéns! Você afundou todos os navios.\nNúmero de tentativas: " + count);
             location.reload();
-          } else {
+          } 
+          else if(count === 18){
+
+            let battle = document.getElementById("battle");
+            battle.pause();
+            let lose = document.getElementById("lose");
+            lose.play();
+            alert("Infelizmente, você perdeu.\nMais sorte na próxima vez.");
+            location.reload();
+          }
+          else {
             alert("Parabéns! Você afundou um navio!");
           }
         } else {
@@ -56,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
           fail.play();
           cell.style.backgroundImage = `url('assets/img/tile-water.jpg')`;
 
-          if (count === 35){
+          if (count === 18){
 
             let battle = document.getElementById("battle");
             battle.pause();
@@ -87,7 +106,7 @@ document.addEventListener("click", function (event) {
     
     soundtrack.play();
 
-    alert("Existem 5 navios escondidos no nevoeiro.\nSua missão? Explodir todos eles.\nVocê perde se sobrar somente uma cordenada para explodir.");
+    alert("Existem 6 navios escondidos no nevoeiro.\nSua missão? Explodir todos eles.\nVocê somente possui 18 tentativas.");
 
     tutorial = true;
   }
